@@ -5,20 +5,20 @@
         static void Main()
         {
             DoLoginPasswordVerification();
-            GetVowelsCount();
-            GetGradeByScore();
+            VowelsCount();
+            GradeByScore();
         }
         static void DoLoginPasswordVerification()
         {
             string correctLogin = "Alex";
             string correctPassword = "qwerty";
-            int i = 3; //amounts number
-            bool correctData = false;
+            int remainingAttempts = 3; //amounts number
+            bool isLoggedIn = false;
 
             do
             {
                 Console.WriteLine("Input Login:");
-                Console.WriteLine($"{i} attempts left.");
+                Console.WriteLine($"{remainingAttempts} attempts left.");
                 string login = Console.ReadLine() ?? string.Empty;
 
                 Console.WriteLine("Input Password:");
@@ -26,17 +26,17 @@
 
                 if (correctLogin == login && correctPassword == password)
                 {
-                    correctData = true;
+                    isLoggedIn = true;
                     break;
                 }
                 else
                 {
                     Console.WriteLine("Invalid Login or Password!");
-                    i--;
+                    remainingAttempts--;
                 }
-            } while (i != 0);
+            } while (remainingAttempts != 0);
 
-            if (correctData)
+            if (isLoggedIn)
             {
                 Console.WriteLine("Success sign in!");
             }
@@ -45,20 +45,20 @@
                 Console.WriteLine("No more attempts left!");
             }
         }
-        static void GetVowelsCount()
+        static void VowelsCount()
         {
 
             Console.WriteLine("Введите текст:");
-            string text = Console.ReadLine() ?? string.Empty; ;
+            string text = Console.ReadLine() ?? string.Empty; 
             string lowerText = text.ToLower();
 
             int vowelsCount = 0;
 
-            char[] vawelsArray = { 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'з', 'ю', 'я' };
+            char[] vawelsArray = { 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я' };
 
             foreach (char stringItem in lowerText)
             {
-                for (int i = 0; i < vawelsArray.Length - 1; i++)
+                for (int i = 0; i < vawelsArray.Length; i++)
                 {
                     if (stringItem == vawelsArray[i])
                     {
@@ -70,7 +70,7 @@
             Console.WriteLine($"Всего гласных: {vowelsCount}.");
 
         }
-        static void GetGradeByScore()
+        static void GradeByScore()
         {
             int score = 80;
 
