@@ -12,7 +12,7 @@
         {
             string correctLogin = "Alex";
             string correctPassword = "qwerty";
-            int i = 3; // amounts number
+            int i = 3; //amounts number
             bool correctData = false;
 
             do
